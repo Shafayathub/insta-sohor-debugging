@@ -4,11 +4,12 @@ const likedPostsId = [];
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
+  console.log(posts);
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
 
 const getReportedPosts = () => {
-  return posts.filter((post) => reportedPostsId.includes(posts.id));
+  return posts.filter((post) => reportedPostsId.includes(post.id));
 };
 
 const isLiked = (id) => {
@@ -161,7 +162,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById('reported').appendChild(div);
   });
