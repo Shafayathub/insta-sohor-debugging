@@ -4,7 +4,6 @@ const likedPostsId = [];
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
-  console.log(posts);
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
 
@@ -155,6 +154,8 @@ const showPosts = (posts) => {
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
+    // sessionStorage.setItem(`${post.id}`, `${post.id}`);
+    // const compareID = sessionStorage.getItem()
     const div = createPost(post);
     document.getElementById('liked').appendChild(div);
   });
