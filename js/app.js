@@ -39,18 +39,22 @@ const switchTab = (id) => {
     document.getElementById('posts').style.display = 'grid';
     document.getElementById('liked').style.display = 'none';
     document.getElementById('reported').style.display = 'none';
+    document.getElementById('liked').innerHTML = '';
+    document.getElementById('reported').innerHTML = '';
   } else if (id === 'liked') {
     document.getElementById('liked').style.display = 'block';
     document.getElementById('posts').style.display = 'none';
     document.getElementById('reported').style.display = 'none';
 
     displayLikedPosts();
+    document.getElementById('reported').innerHTML = '';
   } else {
     document.getElementById('reported').style.display = 'block';
     document.getElementById('posts').style.display = 'none';
     document.getElementById('liked').style.display = 'none';
 
     displayReportedPosts();
+    document.getElementById('liked').innerHTML = '';
   }
 };
 
@@ -154,8 +158,6 @@ const showPosts = (posts) => {
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
-    // sessionStorage.setItem(`${post.id}`, `${post.id}`);
-    // const compareID = sessionStorage.getItem()
     const div = createPost(post);
     document.getElementById('liked').appendChild(div);
   });
